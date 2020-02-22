@@ -45,14 +45,15 @@ class Container extends React.Component {
       // Toggle The direction if we are already sorted in this direction
       newState.asc = !this.state.asc;
       newState.sort = sort;
+      newState.view = [...this.state.view];
     } else {
       // Else update the sort column and default to ascending
       newState.asc = true;
       newState.sort = sort;
       newState.search = "";
+      newState.view = [...this.state.employees];
     }
     // Apply the sort and direction to our current view
-    newState.view = [...this.state.view];
     newState.view.sort(getSortFunc(newState.sort, newState.asc))
     this.setState(newState);
   };
