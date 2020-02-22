@@ -39,6 +39,7 @@ class Container extends React.Component {
   };
 
   setSort = (sort) => {
+    if (!this.state.cols.includes(sort)) throw new Error("Unknown Sort!");
     const newState = {};
     if (this.state.sort === sort) {
       // Toggle The direction if we are already sorted in this direction
@@ -66,6 +67,7 @@ class Container extends React.Component {
   }
 
   modifyColumn = (index, isVisible) => {
+    if (index < 0 || index >= this.state.cols.length) throw new Error(`modifyColumn: Invalid Column Index! ${index}`);
     const visible = [...this.state.visible];
     visible[index] = isVisible;
     this.setState({ visible })
