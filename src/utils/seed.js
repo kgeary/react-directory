@@ -69,4 +69,25 @@ export default [
     department: "Accounting",
     id: 10
   },
+  {
+    firstName: "Anna",
+    lastName: "Shortt",
+    role: "Hardware Engineer",
+    department: "Engineering",
+    id: 11
+  },
+  {
+    firstName: "Chris",
+    lastName: "Richards",
+    role: "Electrical Engineer",
+    department: "Engineering",
+    id: 12
+  },
+  {
+    firstName: "Chris",
+    lastName: "Richards",
+    role: "Electrical Engineer",
+    department: "Engineering",
+    id: 13
+  },
 ];

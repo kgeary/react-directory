@@ -1,7 +1,8 @@
 import React from "react";
 import Table from './Table'
 import Search from './Search'
-import seed from "../tempSeed";
+import seed from "../utils/seed";
+import download from "../utils/download";
 import { getSortFunc } from "../utils/sort";
 
 class Container extends React.Component {
@@ -57,6 +58,10 @@ class Container extends React.Component {
     }
   }
 
+  downloadView = () => {
+    download(JSON.stringify(this.state.view, null, 2));
+  }
+
   render() {
     return (
       <div className="container">
@@ -75,6 +80,11 @@ class Container extends React.Component {
           getClass={this.getClass}
           setSort={this.setSort}
         />
+        <button
+          className="btn btn-primary"
+          onClick={this.downloadView}>
+          Save View To File
+        </button>
       </div>
     );
   }

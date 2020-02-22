@@ -2,12 +2,13 @@ import React from "react";
 import Employee from "../Employee";
 import "./table.css";
 import TableHead from "../TableHead";
-
+import toastr from "toastr";
+import "toastr/build/toastr.css";
 function Table(props) {
+
   const saveEmployee = (employee) => {
-    navigator.clipboard.writeText(JSON.stringify(employee, null, 2)).then(() => {
-      console.log("Employee Saved to Clipboard");
-    });
+    toastr.success("Employee Saved to Clipboard", "", { timeOut: 2000 });
+    navigator.clipboard.writeText(JSON.stringify(employee, null, 2));
   }
 
   return (
