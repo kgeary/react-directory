@@ -2,11 +2,13 @@ import React from "react";
 
 function Employee(props) {
   return (
-    <tr key={props.employee.id}>
-      <td className="first">{props.employee.first}</td>
-      <td className="last">{props.employee.last}</td>
-      <td className="id">{props.employee.id}</td>
-    </tr>
+    <React.Fragment>
+      <td>{props.employee.id}</td>
+      <td>{props.employee.firstName}</td>
+      <td>{props.employee.lastName}</td>
+      <td>{props.employee.department}</td>
+      <td>{props.employee.role}</td>
+    </React.Fragment>
   )
 }
 

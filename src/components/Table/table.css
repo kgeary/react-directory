@@ -1,3 +1,12 @@
-.active {
+.active.asc {
   text-decoration: underline;
+}
+
+.active.desc {
+  text-decoration: overline;
+}
+
+.table-hover tr:hover td {
+  background-color: rgb(255, 255, 142);
+  color: black;
 }
