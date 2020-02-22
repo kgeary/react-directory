@@ -5,7 +5,7 @@ function Employee(props) {
     <React.Fragment>
       {
         (props.cols).map((col) => (
-          <td key={col}>{props.employee[col]}</td>
+          <td key={col}>{props.employee[col].toString()}</td>
         ))
       }
     </React.Fragment>

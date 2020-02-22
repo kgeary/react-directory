@@ -5,6 +5,10 @@ import seed from "../utils/seed";
 import download from "../utils/download";
 import { getSortFunc } from "../utils/sort";
 
+const allColumns = Object.keys(seed[0]);
+const excludeColumns = ["isManager"];
+const visibleCols = allColumns.filter(x => !excludeColumns.includes(x));
+
 class Container extends React.Component {
   state = {
     employees: seed,
@@ -12,7 +16,7 @@ class Container extends React.Component {
     search: "",
     sort: "id",
     asc: true,
-    cols: Object.keys(seed[0])
+    cols: visibleCols
   };
 
   searchChange = (event) => {
