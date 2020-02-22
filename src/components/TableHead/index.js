@@ -9,7 +9,7 @@ function TableHead(props) {
       onClick={() => props.setSort(props.col)}
       className={props.getClass(props.col)}
     >
-      {formatName(props.col)}
+      {formatName(props.col).toUpperCase()}
     </th>
   );
 }

@@ -1,93 +1,106 @@
 export default [
   {
+    id: 1,
     firstName: "Adam",
     lastName: "Anderson",
     role: "CEO",
     department: "Management",
-    id: 1
+    phoneNumber: "555-1212",
   },
   {
+    id: 2,
     firstName: "Bill",
     lastName: "Sanders",
     role: "Manager",
     department: "Human Resources",
-    id: 2
+    phoneNumber: "555-3434",
   },
   {
+    id: 3,
     firstName: "Charlie",
     lastName: "Tango",
     role: "Software Engineer",
     department: "Engineering",
-    id: 3
+    phoneNumber: "555-4545",
   },
   {
+    id: 4,
     firstName: "Romeo",
     lastName: "Foxtrot",
     role: "Test Engineer",
     department: "Engineering",
-    id: 4
+    phoneNumber: "555-5656",
   },
   {
+    id: 5,
     firstName: "Doug",
     lastName: "Peters",
     role: "Sales Associate",
     department: "Sales",
-    id: 5
+    phoneNumber: "555-6767",
   },
   {
+    id: 6,
     firstName: "Donna",
     lastName: "Walters",
     role: "Accountant",
     department: "Accounting",
-    id: 6
+    phoneNumber: "555-7878",
   },
   {
+    id: 7,
     firstName: "Kelly",
     lastName: "Martinez",
     role: "Sales Associate",
     department: "Sales",
-    id: 7
+    phoneNumber: "555-8989",
   },
   {
+    id: 8,
     firstName: "Roddy",
     lastName: "Rich",
     role: "Sales Associate",
     department: "Sales",
-    id: 8
+    phoneNumber: "555-9090",
   },
   {
+    id: 9,
     firstName: "Dwight",
     lastName: "Kruger",
     role: "Janitor",
     department: "Maintenance",
-    id: 9
+    phoneNumber: "555-0101",
   },
   {
+    id: 10,
     firstName: "Jim",
     lastName: "Zax",
     role: "Accountant",
     department: "Accounting",
-    id: 10
+    phoneNumber: "555-1234",
   },
   {
+    id: 11,
     firstName: "Anna",
     lastName: "Shortt",
     role: "Hardware Engineer",
     department: "Engineering",
-    id: 11
+    phoneNumber: "555-2345",
   },
   {
+    id: 12,
     firstName: "Chris",
     lastName: "Richards",
     role: "Electrical Engineer",
     department: "Engineering",
-    id: 12
+    phoneNumber: "555-3456",
   },
   {
-    firstName: "Chris",
-    lastName: "Richards",
-    role: "Electrical Engineer",
+    id: 13,
+    firstName: "Dante",
+    lastName: "Jones",
+    role: "Intern",
     department: "Engineering",
-    id: 13
+    phoneNumber: "555-4567",
   },
 ];

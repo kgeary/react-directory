@@ -17,18 +17,23 @@ function Table(props) {
         <table className="table table-striped table-hover">
           <thead className="thead-dark">
             <tr>
-              <TableHead setSort={props.setSort} getClass={props.getClass} col="id" />
-              <TableHead setSort={props.setSort} getClass={props.getClass} col="firstName" />
-              <TableHead setSort={props.setSort} getClass={props.getClass} col="lastName" />
-              <TableHead setSort={props.setSort} getClass={props.getClass} col="department" />
-              <TableHead setSort={props.setSort} getClass={props.getClass} col="role" />
+              {
+                props.cols.map(col => (
+                  <TableHead
+                    setSort={props.setSort}
+                    getClass={props.getClass}
+                    col={col}
+                    key={col}
+                  />
+                ))
+              }
             </tr>
           </thead>
           <tbody>
             {
               props.view.map(employee => (
                 <tr onDoubleClick={() => saveEmployee(employee)} key={employee.id}>
-                  <Employee employee={employee} />
+                  <Employee employee={employee} cols={props.cols} />
                 </tr>
               ))
             }

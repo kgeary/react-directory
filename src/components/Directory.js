@@ -12,9 +12,11 @@ class Container extends React.Component {
     search: "",
     sort: "id",
     asc: true,
+    cols: Object.keys(seed[0])
   };
 
   searchChange = (event) => {
+    // Get search text
     const search = event.target.value.trim();
 
     // filter results
@@ -27,30 +29,30 @@ class Container extends React.Component {
     // re-apply sorting
     view.sort(getSortFunc(this.state.sort, this.state.asc));
 
-    // save the state
+    // Update state
     this.setState({ search: search, view: view })
   };
 
   setSort = (sort) => {
-    // Toggle The direction if we are already sorted in this direction
-    // Else update the sort column and default to ascending
-
     const newState = {};
     if (this.state.sort === sort) {
+      // Toggle The direction if we are already sorted in this direction
       newState.asc = !this.state.asc;
       newState.sort = sort;
     } else {
+      // Else update the sort column and default to ascending
       newState.asc = true;
       newState.sort = sort;
       newState.search = "";
     }
+    // Apply the sort and direction to our current view
     newState.view = [...this.state.view];
-    newState.view
-      .sort(getSortFunc(newState.sort, newState.asc))
+    newState.view.sort(getSortFunc(newState.sort, newState.asc))
     this.setState(newState);
   };
 
   getClass = (colName) => {
+    // Get Column Class Names to see if column is active and its sort direction
     if (this.state.sort === colName) {
       return this.state.asc ? "active asc" : "active desc"
     } else {
@@ -64,7 +66,7 @@ class Container extends React.Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="container mb-5">
         <div className="jumbotron mb-0">
           <h1>Employees Table</h1>
         </div>
@@ -79,6 +81,7 @@ class Container extends React.Component {
           view={this.state.view}
           getClass={this.getClass}
           setSort={this.setSort}
+          cols={this.state.cols}
         />
         <button
           className="btn btn-primary"

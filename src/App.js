@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
-import EmployeeContainer from './components/EmployeeContainer'
+import Directory from './components/Directory'
 
 function App() {
-  return <EmployeeContainer />;
+  return <Directory />;
 }
 
 export default App;

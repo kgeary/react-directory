@@ -1,9 +1,17 @@
-.active.asc {
-  text-decoration: underline;
+th.active.asc {
+  color: yellow;
 }
 
-.active.desc {
-  text-decoration: overline;
+th.active.desc {
+  color: yellow;
+}
+
+.active.asc::after {
+  content: " ↓";
+}
+
+.active.desc::after {
+  content: " ↑";
 }
 
 .table-hover tr:hover td {

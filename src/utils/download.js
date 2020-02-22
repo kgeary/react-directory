@@ -1,4 +1,4 @@
-function download(content, fileName = 'json.txt', contentType = 'text/plain') {
+function download(content, fileName = 'view.json', contentType = 'text/plain') {
   var a = document.createElement("a");
   var file = new Blob([content], { type: contentType });
   a.href = URL.createObjectURL(file);

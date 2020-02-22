@@ -8,6 +8,7 @@ function Search(props) {
     <form className="form-inline mb-3">
       <div className="form-group">
         <label className="mr-2" htmlFor="search">Search by</label>
+        {/* Searchbox */}
         <input
           className="form-control"
           type="search"
@@ -17,6 +18,7 @@ function Search(props) {
           value={props.search}
           onChange={props.inputChange}
         />
+        {/* auto-complete list */}
         <datalist id="employees">
           {props.view.map(employee => (
             <option value={employee[props.sort]} key={employee.id} />
