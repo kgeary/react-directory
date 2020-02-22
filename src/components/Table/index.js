@@ -14,29 +14,36 @@ function Table(props) {
   return (
     <div>
       <div style={{ border: "1px solid black", marginBottom: "2rem" }}>
-        <table className="table table-striped table-hover">
+        <table className="table table-striped table-hover mb-0">
+          <colgroup>
+            {props.cols.map((col, index) => props.visible[index] ?
+              <col className={props.getClass(col)} key={col} />
+              : null
+            )}
+          </colgroup>
+
           <thead className="thead-dark">
             <tr>
-              {
-                props.cols.map(col => (
-                  <TableHead
-                    setSort={props.setSort}
-                    getClass={props.getClass}
-                    col={col}
-                    key={col}
-                  />
-                ))
-              }
+              {props.cols.map((col, index) => props.visible[index] ?
+                <TableHead
+                  setSort={props.setSort}
+                  getClass={props.getClass}
+                  col={col}
+                  key={col}
+                /> : null
+              )}
             </tr>
           </thead>
           <tbody>
-            {
-              props.view.map(employee => (
-                <tr onDoubleClick={() => saveEmployee(employee)} key={employee.id}>
-                  <Employee employee={employee} cols={props.cols} />
-                </tr>
-              ))
-            }
+            {props.view.map(employee => (
+              <tr onDoubleClick={() => saveEmployee(employee)} key={employee.id}>
+                <Employee
+                  employee={employee}
+                  cols={props.cols}
+                  visible={props.visible}
+                />
+              </tr>
+            ))}
           </tbody>
         </table >
       </div >

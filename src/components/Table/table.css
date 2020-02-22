@@ -1,9 +1,9 @@
-th.active.asc {
-  color: yellow;
+th.active.asc, th.active.desc {
+  color: rgb(252, 252, 141);
 }
 
-th.active.desc {
-  color: yellow;
+col.active {
+  background-color: rgb(252, 252, 141);
 }
 
 .active.asc::after {

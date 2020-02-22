@@ -1,13 +1,13 @@
 import React from "react";
-import Table from './Table'
-import Search from './Search'
+import Table from "./Table";
+import Search from "./Search";
+import ColFilter from "./ColFilter";
 import seed from "../utils/seed";
 import download from "../utils/download";
 import { getSortFunc } from "../utils/sort";
 
 const allColumns = Object.keys(seed[0]);
 const excludeColumns = ["isManager"];
-const visibleCols = allColumns.filter(x => !excludeColumns.includes(x));
 
 class Container extends React.Component {
   state = {
@@ -16,7 +16,8 @@ class Container extends React.Component {
     search: "",
     sort: "id",
     asc: true,
-    cols: visibleCols
+    cols: allColumns,
+    visible: allColumns.map((col) => !excludeColumns.includes(col))
   };
 
   searchChange = (event) => {
@@ -64,6 +65,12 @@ class Container extends React.Component {
     }
   }
 
+  modifyColumn = (index, isVisible) => {
+    const visible = [...this.state.visible];
+    visible[index] = isVisible;
+    this.setState({ visible })
+  }
+
   downloadView = () => {
     download(JSON.stringify(this.state.view, null, 2));
   }
@@ -81,11 +88,17 @@ class Container extends React.Component {
           view={this.state.view}
           inputChange={this.searchChange}
         />
+        <ColFilter
+          cols={this.state.cols}
+          visible={this.state.visible}
+          modifyColumn={this.modifyColumn}
+        />
         <Table
           view={this.state.view}
           getClass={this.getClass}
           setSort={this.setSort}
           cols={this.state.cols}
+          visible={this.state.visible}
         />
         <button
           className="btn btn-primary"
