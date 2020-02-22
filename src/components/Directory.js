@@ -14,7 +14,7 @@ class Container extends React.Component {
     employees: seed,
     view: seed,
     search: "",
-    sort: "id",
+    sort: allColumns[0],
     asc: true,
     cols: allColumns,
     visible: allColumns.map((col) => !excludeColumns.includes(col))
