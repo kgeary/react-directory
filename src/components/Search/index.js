@@ -6,7 +6,7 @@ function Search(props) {
   const uniqueEntries = [...new Set(props.view.map(i => i[props.sort]))];
 
   return (
-    <form className="form-inline mb-3">
+    <form className="form-inline mb-3 mx-3">
       <div className="form-group">
         <label className="mr-2" htmlFor="search">Filter by</label>
         {/* Searchbox */}

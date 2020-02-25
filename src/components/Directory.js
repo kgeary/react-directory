@@ -1,15 +1,22 @@
 import React from "react";
+import EmployeeImage from "./EmployeeImage";
 import Table from "./Table";
 import Search from "./Search";
 import ColFilter from "./ColFilter";
 import seed from "../utils/seed";
 import download from "../utils/download";
 import { getSortFunc } from "../utils/sort";
+import "./directory.css";
 
-const allColumns = Object.keys(seed[0]);
+// Not Shown by default but will can be enabled
 const excludeColumns = ["isManager"];
 
-class Container extends React.Component {
+// Not shown by default and cannot be shown
+const removeColumns = ["img"];
+
+const allColumns = Object.keys(seed[0]).filter(col => !removeColumns.includes(col));
+
+class Directory extends React.Component {
   state = {
     employees: seed,
     view: seed,
@@ -17,7 +24,8 @@ class Container extends React.Component {
     sort: allColumns[0],
     asc: true,
     cols: allColumns,
-    visible: allColumns.map((col) => !excludeColumns.includes(col))
+    visible: allColumns.map((col) => !excludeColumns.includes(col) && !removeColumns.includes(col)),
+    currentId: null,
   };
 
   searchChange = (event) => {
@@ -67,6 +75,26 @@ class Container extends React.Component {
     }
   }
 
+  clickEmployee = (event) => {
+    const id = event.currentTarget.getAttribute("data-id");
+    if (id) {
+      this.setState({ currentId: parseInt(id) });
+    }
+  }
+
+  // Return the last employee that was clicked on
+  getCurrentEmployee() {
+    const id = this.state.currentId;
+    const filtered = this.state.employees.filter(employee => employee.id === id);
+    if (filtered.length) {
+      const employee = filtered[0];
+      return employee;
+    } else {
+      return null;
+    }
+  }
+
+
   modifyColumn = (index, isVisible) => {
     if (index < 0 || index >= this.state.cols.length) throw new Error(`modifyColumn: Invalid Column Index! ${index}`);
     const visible = [...this.state.visible];
@@ -80,37 +108,49 @@ class Container extends React.Component {
 
   render() {
     return (
-      <div className="container mb-5">
-        <div className="jumbotron mb-0">
-          <h1>Employees Table</h1>
+      <div className="container-fluid mb-5">
+        <div className="jumbotron mb-0" style={{ background: "linear-gradient(#444, #666, #444)" }}>
+          <h1 style={{ color: "whitesmoke", textShadow: "black 2px -2px" }}>Employee Directory</h1>
         </div>
         <p></p>
-        <Search
-          sort={this.state.sort}
-          search={this.state.search}
-          view={this.state.view}
-          inputChange={this.searchChange}
-        />
-        <ColFilter
-          cols={this.state.cols}
-          visible={this.state.visible}
-          modifyColumn={this.modifyColumn}
-        />
-        <Table
-          view={this.state.view}
-          getClass={this.getClass}
-          setSort={this.setSort}
-          cols={this.state.cols}
-          visible={this.state.visible}
-        />
-        <button
-          className="btn btn-primary"
-          onClick={this.downloadView}>
-          Save View To File
-        </button>
+        <div style={{ display: "sticky", top: "2rem" }}>
+          <ColFilter
+            cols={this.state.cols}
+            visible={this.state.visible}
+            modifyColumn={this.modifyColumn}
+          />
+          <Search
+            sort={this.state.sort}
+            search={this.state.search}
+            view={this.state.view}
+            inputChange={this.searchChange}
+          />
+        </div>
+
+        <div className="row">
+          <div className="col-md-9">
+            <Table
+              view={this.state.view}
+              getClass={this.getClass}
+              setSort={this.setSort}
+              cols={this.state.cols}
+              visible={this.state.visible}
+              onClick={this.clickEmployee}
+            />
+            <button
+              className="btn btn-primary"
+              onClick={this.downloadView}
+            >
+              Save View To File
+            </button>
+          </div>
+          <div className="col-md-3">
+            <EmployeeImage employee={this.getCurrentEmployee()} />
+          </div>
+        </div>
       </div>
     );
   }
 }
 
-export default Container;
+export default Directory;

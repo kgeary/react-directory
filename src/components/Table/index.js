@@ -12,8 +12,8 @@ function Table(props) {
   }
 
   return (
-    <div>
-      <div style={{ border: "1px solid black", marginBottom: "2rem" }}>
+    <div className="table-layout">
+      <div className="table-container">
         <table className="table table-striped table-hover mb-0">
           <colgroup>
             {props.cols.map((col, index) => props.visible[index] ?
@@ -36,7 +36,12 @@ function Table(props) {
           </thead>
           <tbody>
             {props.view.map(employee => (
-              <tr onDoubleClick={() => saveEmployee(employee)} key={employee.id}>
+              <tr
+                data-id={employee.id}
+                key={employee.id}
+                onClick={props.onClick}
+                onDoubleClick={() => saveEmployee(employee)}
+              >
                 <Employee
                   employee={employee}
                   cols={props.cols}
@@ -47,7 +52,7 @@ function Table(props) {
           </tbody>
         </table >
       </div >
-      <p style={{ marginTop: "-2rem" }}>
+      <p className="m-1 record-count">
         Displaying {props.view.length} Employee{props.view.length === 1 ? "" : "s"}
       </p>
     </div >

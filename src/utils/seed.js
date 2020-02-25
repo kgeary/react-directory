@@ -6,7 +6,7 @@ export default [
     role: "CEO",
     department: "Management",
     phoneNumber: "555-1212",
-    isManager: true,
+    img: "/images/01.png",
   },
   {
     id: 2,
@@ -15,7 +15,7 @@ export default [
     role: "Manager",
     department: "Human Resources",
     phoneNumber: "555-3434",
-    isManager: true,
+    img: "/images/02.png",
   },
   {
     id: 3,
@@ -24,7 +24,7 @@ export default [
     role: "Software Engineer",
     department: "Engineering",
     phoneNumber: "555-4545",
-    isManager: false,
+    img: "/images/03.jpg",
   },
   {
     id: 4,
@@ -33,7 +33,7 @@ export default [
     role: "Test Engineer",
     department: "Engineering",
     phoneNumber: "555-5656",
-    isManager: false,
+    img: "/images/04.jpg",
   },
   {
     id: 5,
@@ -42,7 +42,7 @@ export default [
     role: "Sales Associate",
     department: "Sales",
     phoneNumber: "555-6767",
-    isManager: false,
+    img: "/images/05.jpg",
   },
   {
     id: 6,
@@ -51,7 +51,7 @@ export default [
     role: "Accountant",
     department: "Accounting",
     phoneNumber: "555-7878",
-    isManager: false,
+    img: "/images/06.jpg",
   },
   {
     id: 7,
@@ -60,7 +60,7 @@ export default [
     role: "Sales Associate",
     department: "Sales",
     phoneNumber: "555-8989",
-    isManager: false,
+    img: "/images/07.png",
   },
   {
     id: 8,
@@ -69,7 +69,7 @@ export default [
     role: "Sales Associate",
     department: "Sales",
     phoneNumber: "555-9090",
-    isManager: false,
+    img: "/images/08.png",
   },
   {
     id: 9,
@@ -78,7 +78,7 @@ export default [
     role: "Janitor",
     department: "Maintenance",
     phoneNumber: "555-0101",
-    isManager: false,
+    img: "/images/09.png",
   },
   {
     id: 10,
@@ -87,7 +87,7 @@ export default [
     role: "Accountant",
     department: "Accounting",
     phoneNumber: "555-1234",
-    isManager: false,
+    img: "/images/10.png",
   },
   {
     id: 11,
@@ -96,7 +96,7 @@ export default [
     role: "Hardware Engineer",
     department: "Engineering",
     phoneNumber: "555-2345",
-    isManager: false,
+    img: "/images/11.png",
   },
   {
     id: 12,
@@ -105,7 +105,7 @@ export default [
     role: "Electrical Engineer",
     department: "Engineering",
     phoneNumber: "555-3456",
-    isManager: false,
+    img: "/images/12.png",
   },
   {
     id: 13,
@@ -114,6 +114,6 @@ export default [
     role: "Intern",
     department: "Engineering",
     phoneNumber: "555-4567",
-    isManager: false,
+    img: "http://placeholder.pics/svg/300",
   },
 ];
