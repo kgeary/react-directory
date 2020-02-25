@@ -21,4 +21,6 @@ This is an example employee directory applcation that uses react to show a list 
 - Add new columns to the seed file and the table will automatically adjust
 - Mobile ready.
 
+## Deployed Site
+[Employee React Directory](https://kgeary.github.io/react-directory/)  
 <img src="./screenshot.png" alt="Screenshot of the Employee Directory App in action">
