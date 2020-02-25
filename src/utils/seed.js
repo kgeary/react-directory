@@ -114,6 +114,6 @@ export default [
     role: "Intern",
     department: "Engineering",
     phoneNumber: "555-4567",
-    img: "http://placeholder.pics/svg/300",
+    img: "./images/13.png",
   },
 ];
