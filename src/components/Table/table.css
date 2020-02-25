@@ -3,7 +3,7 @@ th.active.asc, th.active.desc {
 }
 
 col.active {
-  background-color: rgb(252, 252, 141);
+  background-color: rgb(245, 245, 182);
 }
 
 .active.asc::after {
